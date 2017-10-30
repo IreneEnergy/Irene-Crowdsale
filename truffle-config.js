@@ -2,12 +2,12 @@ require('babel-register');
 require('babel-polyfill');
 
 var provider;
-var HDWalletProvider = require('truffle-hdwallet-provider');
+//var HDWalletProvider = require('truffle-hdwallet-provider');
 var mnemonic = '[REDACTED]';
 
-if (!process.env.SOLIDITY_COVERAGE){
-  provider = new HDWalletProvider(mnemonic, 'https://ropsten.infura.io/')
-}
+//if (!process.env.SOLIDITY_COVERAGE){
+//  provider = new HDWalletProvider(mnemonic, 'https://ropsten.infura.io/')
+//}
 
 
 module.exports = {

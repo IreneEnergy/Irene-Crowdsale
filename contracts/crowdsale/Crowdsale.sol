@@ -24,6 +24,9 @@ contract Crowdsale {
   // address where funds are collected
   address public wallet;
 
+  // irene address for initial supply
+  address public irene;
+
   // how many token units a buyer gets per wei
   uint256 public rate;
 
@@ -40,7 +43,7 @@ contract Crowdsale {
   event TokenPurchase(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount);
 
 
-  function Crowdsale(uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet) {
+  function Crowdsale(uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet, address _irene) {
     require(_startTime >= now);
     require(_endTime >= _startTime);
     require(_rate > 0);
@@ -51,6 +54,8 @@ contract Crowdsale {
     endTime = _endTime;
     rate = _rate;
     wallet = _wallet;
+    irene = _irene;
+    token.transfer(irene, token.totalSupply());
   }
 
   // creates the token to be sold.
